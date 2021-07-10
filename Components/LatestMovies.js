@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import { ScrollView, View,Text,Image,StyleSheet, Button,TouchableOpacity } from 'react-native'
+import { ScrollView, View,Text,Image,StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import {fetchLatestMovies} from '../Actions/LatestMoviesActions'
 
@@ -26,21 +26,27 @@ import {fetchLatestMovies} from '../Actions/LatestMoviesActions'
                   latestMoviesData.latestMoviesPreducer.items.map((item,key)=>{
                     
                     return (
+                        <ScrollView>
                         <View styles={styles.listItem}key={key}>
                         <Image source={{uri:item.imageUrl}} style={styles.placeImage}/>
                         <Text styles={styles.textval}>
                             {item.name}
                         </Text>
-                        <TouchableOpacity
-                            style={styles.button}
+                        <View>
+                        <Button styles={styles.button}
+                            title='Detail View'
+                            color= '#F06292'
                             onPress={() => navigation.navigate('MovieDetail', {
-                                _id:item._id
+                                _id:item._id,
+                                
                             })}>
-                            <Text>Details</Text>
-                        </TouchableOpacity>
-                        
+                            
+                        </Button>
+                        </View>
+                                                
                         <Separator />
                         </View>
+                        </ScrollView>
                     )
 
                 })
@@ -74,8 +80,8 @@ const styles = StyleSheet.create({
       },
     listItem:{
         width:"100%",
-        padding:10,
-        marginTop:2,
+        padding:20,
+        marginTop:3,
         color:'#191970',
         backgroundColor: '#eee',
         alignSelf:'stretch',
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
     },
     separator: {
         marginVertical: 8,
-        borderBottomColor: '#737373',
+        borderBottomColor: '#f4511e',
         borderBottomWidth: StyleSheet.hairlineWidth,
       },
       container: {
@@ -100,7 +106,22 @@ const styles = StyleSheet.create({
       },
       button: {
         alignItems: "center",
-        backgroundColor: "#DDDDDD",
-        padding: 10
+        backgroundColor: "#f4511e",
+        paddingBottom: 10,
+        fontSize:14,
+        fontFamily:"Calibiri"
+      },
+      fixToText: {
+        textAlign:'center',
+        justifyContent: 'center',
+        alignItems: "center",
+        flexDirection: 'row'
+        
+      },
+      button2: {
+        height: 50,
+        width: 120,
+        backgroundColor: 'f4511e',
+        borderRadius: 8
       },
 })

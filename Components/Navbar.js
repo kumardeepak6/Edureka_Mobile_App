@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={LatestMovies} options={{ title: 'Latest Movies' , 
+        <Stack.Screen name="Home" component={LatestMovies} options={{ title: 'eCube Movies: Now Playing Movies', 
         headerStyle: {
             backgroundColor: '#f4511e',
           },
